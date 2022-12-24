@@ -1,7 +1,21 @@
-# `QQ` 小程序 `CI` 镜像添加代理功能
+# ~~`QQ` 小程序 `CI` 镜像添加代理功能~~ 
+写完才发现小程序镜像支持代理，只需要配置 `proxy` 就行了
+```bash
+# 仅供参考
+-e HTTP_PROXY=http://host.docker.internal:8080 
+-e HTTPS_PROXY=http://host.docker.internal:8080 
+# 如果是 Mac 或者 Windows，加这句
+--add-host=host.docker.internal:host-gateway 
+# Linux，加这句
+--add-host=host.docker.internal:127.0.0.1 --net=host
+```
+写都写了就不删了，留作纪念
 
-## 镜像
+## Image
 [ciiri/qqminiapp-build-proxy:latest](https://hub.docker.com/r/ciiri/qqminiapp-build-proxy)
+
+## Dockerfile
+[singleparty/qqminiapp-build-proxy](https://github.com/singleparty/qqminiapp-build-proxy)
 
 ## 需求
 
